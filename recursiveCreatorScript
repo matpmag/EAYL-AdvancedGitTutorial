@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Check if folder already exists
 if [ ! -d ~/advancedGit ]; then
 	#Make the folder
 	mkdir ~/advancedGit
@@ -8,11 +9,15 @@ else
 	echo "Folder already exists"
 fi
 
+#Deletes previous files created
 if [ -f ~/advancedGit/file1.txt ]; then
 	rm ~/advancedGit/*.txt
 fi
 
+#initialise counter
 counter=1
+
+#While loop used to recursively create folders until the specified amount is made
 while [ $counter -le $1 ]
 do
 	echo "Creating file #" $counter
@@ -20,4 +25,5 @@ do
 	echo "This is file" $counter", it's name is file"$counter".txt" > ~/advancedGit/file$counter.txt
 	((counter++))
 done
+
 echo All done
