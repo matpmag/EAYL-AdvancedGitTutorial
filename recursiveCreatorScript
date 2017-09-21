@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ ! -d ~/advancedGit ]; then
+	#Make the folder
+	mkdir ~/advancedGit
+	echo "Making folder in home directory"
+else
+	echo "Folder already exists"
+fi
+
+if [ -f ~/advancedGit/file1.txt ]; then
+	rm ~/advancedGit/*.txt
+fi
+
+counter=1
+while [ $counter -le $1 ]
+do
+	echo "Creating file #" $counter
+	touch ~/advancedGit/file$counter.txt
+	echo "This is file " $counter", it's name is file"$counter".txt" > ~/advancedGit/file$counter.txt
+	((counter++))
+done
+echo All done
