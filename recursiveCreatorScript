@@ -17,7 +17,7 @@ while [ $counter -le $1 ]
 do
 	echo "Creating file #" $counter
 	touch ~/advancedGit/file$counter.txt
-	echo "This is file " $counter", it's name is file"$counter".txt" > ~/advancedGit/file$counter.txt
+	echo "This is file" $counter", it's name is file"$counter".txt" > ~/advancedGit/file$counter.txt
 	((counter++))
 done
 echo All done
