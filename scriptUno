@@ -1,15 +1,12 @@
 #!/bin/bash
 
-
+cd
 if [ ! -d "teams" ]
 then
-cd
 mkdir teams
-cd teams
-mkdir folders
-cd folders
+mkdir teams/folders
 fi
-
+cd teams/folders
 
 
 if [ $1 ]
