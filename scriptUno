@@ -1,0 +1,35 @@
+#!/bin/bash
+
+cd
+if [ ! -d "teams" ]
+then
+mkdir teams
+mkdir teams/folders
+fi
+cd teams/folders
+
+
+if [ $1 ]
+then
+ 
+	if [ -d $1 ]
+	then
+		echo "Directory already exists"
+	else
+		mkdir $1
+		cd $1
+
+		if [ $2 ]
+		then 
+			if [ ! -f $2 ]
+			then
+				echo "Matthew admits he was wrong about pizza give us bonus points" > $2.txt
+			fi
+		else
+			echo "Please enter a file name"
+		fi
+	fi
+else
+	echo "File directory not enterd"
+fi
+
