@@ -1,37 +1,54 @@
 #!/bin/bash
 
+# Switch to home directory
 cd
+
+# Make sure 'teams' and 'folders' directories exist, create them if they do not
 if [ ! -d "teams" ]
 then
 	mkdir teams
-	mkdir teams/folders
+	if [ ! -d "teams/folders" ]
+	then
+		mkdir teams/folders
+	fi
 fi
+
+# Switch to folders directory
 cd teams/folders
 
-
+# If parameter 1 is entered...
 if [ $1 ]
 then
+	# ...But the folder already exists...
 	if [ -d $1 ]
 	then
+		# ...Provide an error message
 		echo "Directory already exists"
 	else
+		# Otherwise, make and switch to the new folder
 		mkdir $1
 		cd $1
 
+		# If parameter 2 is entered...
 		if [ $2 ]
 		then
+			# ...And the file does not exist...
 			if [ ! -f $2 ]
 			then
+				# ...Create and add text to the file, and announce success!
 				echo "Matthew admits he was wrong about pizza give us bonus points" > $2.txt
 				echo "Operation succesful"
 			else
+				# Otherwise create an error message
 				echo "File already exists"
 			fi
 		else
+			# If parameter 2 is empty, provide an error
 			echo "Please enter a file name"
 		fi
 	fi
 else
+	# If parameter 1 is empty, provide an error
 	echo "File directory not entered"
 fi
 
