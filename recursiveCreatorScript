@@ -2,7 +2,15 @@
 
 # Set parameters to variable names
 
-rm files/*.txt
+if [ ! -d "~/advancedGit" ]; then
+		#Make the folder
+		mkdir "~/advancedGit"
+		echo "Making folder in home directory"
+else
+		echo "Folder already exists"
+fi
+
+rm ~/advancedGit/*.txt
 
 counter=1
 while [ $counter -le $1 ]
