@@ -15,7 +15,7 @@ fi
 if [ $1 ]
 then
  
-	if [ ! -d $1 ]
+	if [ -d $1 ]
 	then
 		echo "Directory already exists"
 	else
@@ -24,8 +24,10 @@ then
 
 		if [ $2 ]
 		then 
-			
-			echo "Matthew admits he was wrong about pizza give us bonus points" > $2.txt
+			if [ ! -f $2 ]
+			then
+				echo "Matthew admits he was wrong about pizza give us bonus points" > $2.txt
+			fi
 		else
 			echo "Please enter a file name"
 		fi
